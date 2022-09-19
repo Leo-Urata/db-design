@@ -1,0 +1,357 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flaskdb | calendar</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/flaskdb.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js"></script>
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('app.index') }}">flaskdb</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+            {% if not "loginID" in session %}
+            <li><a href="{{ url_for('app.signup') }}">SignUP</a></li>
+            {% else %}
+            <li><a href="{{ url_for('app.calendar') }}">Your calendar</a></li>
+            <li><a href="{{ url_for('app.form1') }}">空きこま入力</a></li>
+            <li><a href="{{ url_for('app.logout') }}">Logout</a></li>
+            {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<h1>空きコマ選択画面</h1> 
+    <form action="{{ url_for('app.form1') }}" method="POST" novalidate class="mb-10">
+      <table>
+          <tr>
+            <h3>月曜日</h3> 
+          </tr>
+          <tr>
+              <label for="a1">1時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="mon_1" type="hidden" value=0>
+              <input type="checkbox" id="a1" name="mon_1" value=1>
+          </tr>
+          <tr>
+          
+              <label for="a2">２時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="mon_2" type="hidden" value=0>
+              <input type="checkbox" id="a2" name="mon_2" value=1>
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a3">３時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="mon_3" type="hidden" value=0>
+              <input type="checkbox" id="a3" name="mon_3" value=1>
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a4">４時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="mon_4" type="hidden" value=0>
+              <input type="checkbox" id="a4" name="mon_4" value=1>
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a5">５時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="mon_5" type="hidden" value=0>
+              <input type="checkbox" id="a5" name="mon_5" value=1>
+  
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a6">６時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="mon_6" type="hidden" value=0>
+              <input type="checkbox" id="a6" name="mon_6" value=1>
+          
+          </tr>
+        </table>
+        <table >
+          <tr>
+            <h3>火曜日</h3> 
+          </tr>
+          <tr>
+      
+              <label for="a7">１時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="tue_1" type="hidden" value=0>
+              <input type="checkbox" id="a7" name="tue_1" value=1>
+          
+         
+          </tr>
+          <tr>
+      
+              <label for="a8">２時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="tue_2" type="hidden" value=0>
+              <input type="checkbox" id="a8" name="tue_2" value=1>
+       
+         
+          </tr>
+          <tr>
+      
+              <label for="a9">３時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="tue_3" type="hidden" value=0>
+              <input type="checkbox" id="a9" name="tue_3" value=1>
+       
+         
+          </tr>
+          <tr>
+      
+              <label for="a10">４時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="tue_4" type="hidden" value=0>
+              <input type="checkbox" id="a10" name="tue_4" value=1>
+       
+         
+          </tr>
+          <tr>
+      
+              <label for="a11">５時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="tue_5" type="hidden" value=0>
+              <input type="checkbox" id="a11" name="tue_5" value=1>
+       
+         
+          </tr>
+          <tr>
+        
+              <label for="a12">６時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="tue_6" type="hidden" value=0>
+              <input type="checkbox" id="a12" name="tue_6" value=1>
+
+         
+          </tr>
+        </table>
+        <table >
+          <tr>
+            <h3>水曜日</h3> 
+          </tr>
+          <tr>
+          
+              <label for="a13">１時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="wen_1" type="hidden" value=0>
+              <input type="checkbox" id="a13" name="wen_1" value=1>
+          
+            
+          </tr>
+          <tr>
+            
+              <label for="a14">２時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="wen_2" type="hidden" value=0>
+              <input type="checkbox" id="a14" name="wen_2" value=1>
+
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a15">３時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="wen_3" type="hidden" value=0>
+              <input type="checkbox" id="a15" name="wen_3" value=1>
+    
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a16">４時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="wen_4" type="hidden" value=0>
+              <input type="checkbox" id="a16" name="wen_4" value=1>
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a17">５時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="wed_5" type="hidden" value=0>
+              <input type="checkbox" id="a17" name="wen_5" value=1>
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a18">６時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="wen_6" type="hidden" value=0>
+              <input type="checkbox" id="a18" name="wen_6" value=1>
+            
+          
+            
+          </tr>
+        </table>
+        <table >
+          <tr>
+            <h3>木曜日</h3> 
+          </tr>
+          <tr>
+          
+              <label for="a19">１時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="thu_1" type="hidden" value=0>
+              <input type="checkbox" id="a19" name="thu_1" value=1>
+          
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a20">２時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="thu_2" type="hidden" value=0>
+              <input type="checkbox" id="a20" name="thu_2" value=1>
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a21">３時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="thu3" type="hidden" value=0>
+              <input type="checkbox" id="a21" name="thu_3" value=1>
+          
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a22">４時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="thu_4" type="hidden" value=0>
+              <input type="checkbox" id="a22" name="thu_4" value=1>
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a23">５時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="thu_5" type="hidden" value=0>
+              <input type="checkbox" id="a23" name="thu_5" value=1>
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a24">６時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="thu_6" type="hidden" value=0>
+              <input type="checkbox" id="a24" name="thu_6" value=1>
+      
+          
+            
+          </tr>
+        </table>
+  
+        <table >
+          <tr>
+            <h3>金曜日</h3> 
+          </tr>
+          <tr>
+          
+              <label for="a25">１時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="fri_1" type="hidden" value=0>
+              <input type="checkbox" id="a25" name="fri_1" value=1>
+        
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a26">２時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="fri_2" type="hidden" value=0>
+              <input type="checkbox" id="a26" name="fri_2" value=1>
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a27">３時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="fri_3" type="hidden" value=0>
+              <input type="checkbox" id="a27" name="fri_3" value=1>
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a28">４時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="fri_4" type="hidden" value=0>
+              <input type="checkbox" id="a28" name="fri_4" value=1>
+          
+            
+          </tr>
+          <tr>
+          
+              <label for="a29">５時限目</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input name="fri_5" type="hidden" value=0>
+              <input type="checkbox" id="a29" name="fri_5" value=1>
+          
+            
+          </tr>
+          <tr>
+          
+                <label for="a30">６時限目</label>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <input name="fri_6" type="hidden" value=0>
+                <input type="checkbox" id="a30" name="fri_6" value=1>
+        
+          
+              
+          </tr>
+        </table>
+        <div>
+          <input type="submit" value="送信">
+        </div>
+  <!-- <input type="reset" name="reset" value="リセット"></input> 
+  <input type="submit" name="submit" value="Submit"></input> -->
+  </form>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ bootstrap_find_resource('jquery.js', cdn='jquery') }}"></script>
+<script src="{{ bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap') }}"></script>
+<script src="/static/js/flaskdb.js"></script>
+{% endblock %}

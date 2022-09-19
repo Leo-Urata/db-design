@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hello Jinja2</title>
+  </head>
+  <body>
+    
+    <form action="{{ url_for('app.form1') }}" method="POST" enctype="multipart/form-data">
+		<div id="month">
+      <h3>月曜日</h3>
+      <div>
+        <label for="ck1">月曜1限：</label>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <input type="checkbox" id="ck1" name="checkbox" value="1">
+      </div>
+      <div>
+        <label for="ck2">月曜2限：</label>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <input type="checkbox" id="ck2" name="checkbox" value="2">
+      </div>
+      <div>
+        <label for="ck3">月曜3限：</label>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <input type="checkbox" id="ck3" name="checkbox" value="3">
+      </div>
+      <div>
+        <label for="ck4">月曜4限：</label>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <input type="checkbox" id="ck4" name="checkbox" value="4">
+      </div>
+      <div>
+          <label for="ck4">月曜5限：</label>
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+          <input type="checkbox" id="ck4" name="checkbox" value="5">
+        </div>
+      <div>
+          <label for="ck4">月曜6限：</label>
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+          <input type="checkbox" id="ck4" name="checkbox" value="6">
+        </div>
+      </div>
+      <div id="tue">
+        <h3>火曜日</h3>
+        <div>
+            <label for="ck1">火曜1限：</label>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="checkbox" id="ck1" name="checkbox" value="7">
+          </div>
+          <div>
+            <label for="ck2">火曜2限：</label>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="checkbox" id="ck2" name="checkbox" value="8">
+          </div>
+          <div>
+            <label for="ck3">火曜3限：</label>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="checkbox" id="ck3" name="checkbox" value="9">
+          </div>
+          <div>
+            <label for="ck4">火曜4限：</label>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="checkbox" id="ck4" name="checkbox" value="10">
+          </div>
+        <div>
+            <label for="ck4">火曜5限：</label>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="checkbox" id="ck4" name="checkbox" value="11">
+          </div>
+        <div>
+            <label for="ck4">火曜6限：</label>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="checkbox" id="ck4" name="checkbox" value="12">
+          </div>
+        </div>
+      <div id="wen">
+          <h3>水曜日</h3>
+          <div>
+              <label for="ck1">水曜1限：</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input type="checkbox" id="ck1" name="checkbox" value="13">
+            </div>
+            <div>
+              <label for="ck2">水曜2限：</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input type="checkbox" id="ck2" name="checkbox" value="14">
+            </div>
+            <div>
+              <label for="ck3">水曜3限：</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input type="checkbox" id="ck3" name="checkbox" value="15">
+            </div>
+            <div>
+              <label for="ck4">水曜4限：</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input type="checkbox" id="ck4" name="checkbox" value="16">
+            </div>
+          <div>
+              <label for="ck4">水曜5限：</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input type="checkbox" id="ck4" name="checkbox" value="17">
+            </div>
+          <div>
+              <label for="ck4">水曜6限：</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input type="checkbox" id="ck4" name="checkbox" value="18">
+            </div>
+      </div>
+      <div id="thu">
+        <h3>木曜日</h3>
+          <div>
+              <label for="ck1">木曜1限：</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input type="checkbox" id="ck1" name="checkbox" value="19">
+            </div>
+            <div>
+              <label for="ck2">木曜2限：</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input type="checkbox" id="ck2" name="checkbox" value="20">
+            </div>
+            <div>
+              <label for="ck3">木曜3限：</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input type="checkbox" id="ck3" name="checkbox" value="21">
+            </div>
+            <div>
+              <label for="ck4">木曜4限：</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input type="checkbox" id="ck4" name="checkbox" value="22">
+            </div>
+          <div>
+              <label for="ck4">木曜5限：</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input type="checkbox" id="ck4" name="checkbox" value="23">
+            </div>
+          <div>
+              <label for="ck4">木曜6限：</label>
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input type="checkbox" id="ck4" name="checkbox" value="24">
+            </div>
+      </div>
+      <div id="fri">
+        <h3>金曜日</h3>
+        <div>
+            <label for="ck1">金曜1限：</label>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="checkbox" id="ck1" name="checkbox" value="25">
+          </div>
+          <div>
+            <label for="ck2">金曜2限：</label>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="checkbox" id="ck2" name="checkbox" value="26">
+          </div>
+          <div>
+            <label for="ck3">金曜3限：</label>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="checkbox" id="ck3" name="checkbox" value="27">
+          </div>
+          <div>
+            <label for="ck4">金曜4限：</label>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="checkbox" id="ck4" name="checkbox" value="28">
+          </div>
+        <div>
+            <label for="ck4">金曜5限：</label>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="checkbox" id="ck4" name="checkbox" value="29">
+          </div>
+        <div>
+            <label for="ck4">金曜6限：</label>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <input type="checkbox" id="ck4" name="checkbox" value="30">
+          </div>
+      </div>
+
+      <div>
+        <input type="submit" value="送信">
+      </div>
+    </form>
+  </body>
+</html>
