@@ -1,0 +1,47 @@
+CREATE TABLE public.form_1
+(
+    id integer,
+    loginID integer,
+    mon_1 smallint,
+    mon_2 smallint,
+    mon_3 smallint,
+    mon_4 smallint,
+    mon_5 smallint,
+    mon_6 smallint,
+    tue_1 smallint,
+    tue_2 smallint,
+    tue_3 smallint,
+    tue_4 smallint,
+    tue_5 smallint,
+    tue_6 smallint,
+    wed_1 smallint,
+    wed_2 smallint,
+    wed_3 smallint,
+    wed_4 smallint,
+    wed_5 smallint,
+    wed_6 smallint,
+    thu_1 smallint,
+    thu_2 smallint,
+    thu_3 smallint,
+    thu_4 smallint,
+    thu_5 smallint,
+    thu_6 smallint,
+    fri_1 smallint,
+    fri_2 smallint,
+    fri_3 smallint,
+    fri_4 smallint,
+    fri_5 smallint,
+    fri_6 smallint,
+    CONSTRAINT form_1_pkey PRIMARY KEY (id)
+)
+TABLESPACE pg_default;
+
+
+insert into form_1_2 values('2022064', 1,1,0,0,1,1,0,1,1,1,1,1,0,1,0,0,1,1,0,0,1,1,1,1,1,1,0,0,1,1);
+insert into form_1_1 values('2022038', 1,1,0,0,1,1,0,0,0,0,0,1,1,1,0,1,1,1,1,0,0,1,1,1,1,0,0,1,1);
+insert into form_1_1 values('2022054', 1,1,0,0,1,1,0,0,0,0,0,1,1,1,0,1,1,1,1,0,0,1,1,1,1,0,0,1,1);
+insert into form_1_1 values('2022047', 1,1,0,0,1,1,0,0,0,0,0,1,1,1,0,1,1,1,1,0,0,1,1,1,1,0,0,1,1);
+
+
+
+ select * from (select sum(mon_1) as mon_1 from form_1_2 union all select sum(mon_2) from form_1_2 union all select sum(mon_3) from form_1_2 union all select sum(mon_4) from form_1_2 union all select sum(mon_5) from form_1_2 union all select sum(mon_6) from form_1_2 union all select sum(tue_1) from form_1_2 union all select sum(tue_2) from form_1_2 union all select sum(tue_3) from form_1_2 union all select sum(tue_4) from form_1_2 union all select sum(tue_5) from form_1_2 union all select sum(tue_6) from form_1_2 union all select sum(wed_1) from form_1_2 union all select sum(wed_2) from form_1_2 union all select sum(wed_3) from form_1_2 union all select sum(wed_4) from form_1_2 union all select sum(wed_5) from form_1_2 union all select sum(wed_6) from form_1_2 union all select sum(thu_1) from form_1_2 union all select sum(thu_2) from form_1_2 union all select sum(thu_3) from form_1_2 union all select sum(thu_4) from form_1_2 union all select sum(thu_5) from form_1_2 union all select sum(thu_6) from form_1_2 union all select sum(fri_1) from form_1_2 union all select sum(fri_2) from form_1_2 union all select sum(fri_3) from form_1_2 union all select sum(fri_4) from form_1_2 union all select sum(fri_5) from form_1_2 union all select sum(fri_6) from form_1_2) as sum where sum >= 2;) from form_1_2 union all select sum(mon_2) from form_1_2 union all select sum(mon_3) from form_1_2 union all select sum(mon_4) from form_1_2 union all select sum(mon_5) from form_1_2 union all select sum(mon_6) from form_1_2 union all select sum(tue_1) from form_1_2 union all select sum(tue_2) from form_1_2 union all select sum(tue_3) from form_1_2 union all select sum(tue_4) from form_1_2 union all select sum(tue_5) from form_1_2 union all select sum(tue_6) from form_1_2 union all select sum(wed_1) from form_1_2 union all select sum(wed_2) from form_1_2 union all select sum(wed_3) from form_1_2 union all select sum(wed_4) from form_1_2 union all select sum(wed_5) from form_1_2 union all select sum(wed_6) from form_1_2 union all select sum(thu_1) from form_1_2 union all select sum(thu_2) from form_1_2 union all select sum(thu_3) from form_1_2 union all select sum(thu_4) from form_1_2 union all select sum(thu_5) from form_1_2 union all select sum(thu_6) from form_1_2 union all select sum(fri_1) from form_1_2 union all select sum(fri_2) from form_1_2 union all select sum(fri_3) from form_1_2 union all select sum(fri_4) from form_1_2 union all select sum(fri_5) from form_1_2 union all select sum(fri_6) from form_1_2) where sum >= 2;
