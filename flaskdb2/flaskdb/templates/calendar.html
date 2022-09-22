@@ -44,7 +44,6 @@
             <h2>Welcome, {{ session["name"] }}!</h2>
             <h3>あなたのグループは{{ session["groupnumber"] }}です。</h3>
         {% endif %}
-
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-3">
@@ -53,7 +52,7 @@
                 <h5>日程調整フォーム</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="{{ url_for('app.form1') }}">１週目</a></li>
+                    <li class="list-group-item"><a href="#">１週目</a></li>
                     <li class="list-group-item"><a href="#">２週目</a></li>
                     <li class="list-group-item"><a href="#">３週目</a></li>
                     <li class="list-group-item"><a href="#">４週目</a></li>

@@ -2,6 +2,8 @@
 A Sample Web-DB Application for DB-DESIGN lecture
 Copyright (C) 2022 Yasuhiro Hayashi
 """
+#from msvcrt import open_osfhandle
+from pipes import quote
 from flask import Blueprint, request, session, render_template, redirect, flash, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
@@ -155,24 +157,8 @@ def calendar():
         fri_5.append(str(data.fri_5))
         fri_6.append(str(data.fri_6))
 
-    # df = pd.DataFrame([mon_1,mon_2,mon_3,mon_4,mon_5,mon_6,tue_1,tue_2,tue_3,tue_4,tue_5,tue_6,wen_1,wen_2,wen_3,
-    # wen_4,
-    # wen_5,
-    # wen_6,
-    # thu_1,
-    # thu_2,
-    # thu_3,
-    # thu_4,
-    # thu_5,
-    # thu_6,
-    # fri_1,
-    # fri_2,
-    # fri_3,
-    # fri_4,
-    # fri_5,
-    # fri_6,],columns=['mon-1','mon-2','mon-3','mon-4','mon-5','mon-6','tue-1','tue-2','tue-3','tue-4','tue-5','tue-6','wed-1','wed-2','wed-3','wed-4','wed-5','wed-6','thu-1','thu-2','thu-3','thu-4','thu-5','thu-6','fri-1','fri-2','fri-3','fri-4','fri-5','fri-6'],
-    # index = userID)
     df = pd.DataFrame(mon_1,columns=['mon-1'],index=userID)
+
     df['mon-2'] = mon_2
     df['mon-3'] = mon_3
     df['mon-4'] = mon_4
@@ -205,17 +191,16 @@ def calendar():
     df['fri-5'] = fri_5
     df['fri-6'] = fri_6
 
+    df[['mon-1','mon-2','mon-3','mon-4','mon-5','mon-6','tue-1','tue-2','tue-3','tue-4','tue-5','tue-6','wen-1','wen-2','wen-3','wen-4','wen-5','wen-6','thu-1','thu-2','thu-3','thu-4','thu-5','thu-6','fri-1','fri-2','fri-3','fri-4','fri-5','fri-6']] = df[['mon-1','mon-2','mon-3','mon-4','mon-5','mon-6','tue-1','tue-2','tue-3','tue-4','tue-5','tue-6','wen-1','wen-2','wen-3','wen-4','wen-5','wen-6','thu-1','thu-2','thu-3','thu-4','thu-5','thu-6','fri-1','fri-2','fri-3','fri-4','fri-5','fri-6']].astype(int)
     df2 = df.T
     # df2.sum(axis = 'columns')
-    if 'sum' in df2.columns :
-        df2 = df2.drop('sum', axis=1)
-        df2['sum'] = df2.sum(axis=1)
-    else:
-        df2['sum'] = df2.sum(axis=1)
-    
+
+    df2['sum'] = df2.sum(axis =1)
+
     # print(df2[df2['sum']>4])
     # print(df2['sum']>4)
-    reqd_Index = df2[df2['sum']>=4].index.tolist()
+    dos = len(df['mon-1'])
+    reqd_Index = df2[df2['sum']>=dos].index.tolist()
 
     d={'mon-1':'08:50~10:30', 'mon-2':'10:40~12:20','mon-3':'13:10~14:50','mon-4':'15:00~16:40','mon-5':'16:50~18:30','mon-6':'18:40~20:20',
     'tue-1':'08:50~10:30', 'tue-2':'10:40~12:20','tue-3':'13:10~14:50','tue-4':'15:00~16:40','tue-5':'16:50~18:30','tue-6':'18:40~20:20',
@@ -227,53 +212,48 @@ def calendar():
     for i in reqd_Index:
         pp.append(i)
         ss.append(d[i])
+
     mond = []
     tusd = []
     wend = []
     thur = []
     frid = []
-    for i in pp:
-        if 'mon' in i:
-            mond.append(i)
-        if 'tue' in i:
-            tusd.append(i)
-        if 'wen' in i:
-            wend.append(i)
-        if 'thu' in i :
-            thur.append(i)
-        if 'fri' in i :
-            frid.append(i)
+    for j in pp:
+        if 'mon' in j:
+            mond.append(j)
+        if 'tue' in j:
+            tusd.append(j)
+        if 'wen' in j:
+            wend.append(j)
+        if 'thu' in j :
+            thur.append(j)
+        if 'fri' in j :
+            frid.append(j)
     sssl=[]
     pso = []
     sssf =[]
     ssds = []
     sssd = []
-    for i in mond:
-        sssl.append(d[i])
-    for i in tusd:
-        pso.append(d[i])
-    for i in wend:
-        sssf.append(d[i])
-    for i in thur:
-        ssds.append(d[i])
-    for i in frid:
-        sssd.append(d[i])
+    for q in mond:
+        sssl.append(d[q])
+    for q in tusd:
+        pso.append(d[q])
+    for q in wend:
+        sssf.append(d[q])
+    for q in thur:
+        ssds.append(d[q])
+    for q in frid:
+        sssd.append(d[q])
 
 
     i1 = sssl*7
     i1.sort()
-
-
     i2 = pso*7
     i2.sort()
-
     i3 = sssf*7
     i3.sort()
-
     i4 = ssds*7
     i4.sort()
-
-
     i5 = sssd*7
     i5.sort()
 
